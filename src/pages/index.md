@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Berklea Going
-image: /img/home-jumbotron.jpg
+image: /img/headshot.png
 heading: Berklea Going
 subheading: Singer, Dancer, Actor
 aboutme:
@@ -68,3 +68,4 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 ---
+
