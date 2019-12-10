@@ -14,6 +14,7 @@ export const IndexPageTemplate = ({
   aboutme,
   description,
   intro,
+  content
 }) => (
   <div>
     <div
@@ -124,10 +125,11 @@ IndexPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
+  content: PropTypes.string,
 }
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter, html } = data.markdownRemark
 
   return (
     <Layout>
@@ -139,6 +141,7 @@ const IndexPage = ({ data }) => {
         aboutme={frontmatter.aboutme}
         description={frontmatter.description}
         intro={frontmatter.intro}
+        content={html}
       />
     </Layout>
   )
@@ -148,6 +151,7 @@ IndexPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
+      html: PropTypes.string
     }),
   }),
 }
@@ -157,6 +161,7 @@ export default IndexPage
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      html
       frontmatter {
         title
         image {

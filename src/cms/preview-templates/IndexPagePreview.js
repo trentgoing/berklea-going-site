@@ -15,6 +15,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         description={data.description}
         intro={data.intro || { blurbs: [] }}
         aboutme={data.aboutme || {}}
+        content={widgetFor('body')}
       />
     )
   } else {
