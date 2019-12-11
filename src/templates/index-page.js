@@ -5,6 +5,9 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import AboutMe from '../components/AboutMe'
+import Redirects from '../components/Redirects'
+
 
 export const IndexPageTemplate = ({
   main_image,
@@ -13,16 +16,18 @@ export const IndexPageTemplate = ({
   subheading,
   aboutme,
   description,
-  intro,
-  content
+  photo_tiles,
+  content,
+  about_me_image,
+  contentComponent
 }) => (
   <div>
     <div
       className="full-width-image margin-top-0"
       style={{
-        // backgroundImage: `url(${
-        //   !!main_image.childImageSharp ? main_image.childImageSharp.fluid.src : main_image
-        // })`,
+        backgroundImage: `url(${
+          !!main_image.childImageSharp && main_image ? main_image.childImageSharp.fluid.src : main_image
+        })`,
         backgroundPosition: `top left`,
         backgroundAttachment: `fixed`,
       }}
@@ -65,20 +70,13 @@ export const IndexPageTemplate = ({
         </h3>
       </div>
     </div>
-    {/* <section className="section section--gradient">
+    <AboutMe image={about_me_image} content={content}/>
+    <section className="section section--gradient">
       <div className="container">
         <div className="section">
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{aboutme.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{aboutme.description}</h3>
-                  </div>
-                </div>
                 <div className="columns">
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
@@ -87,7 +85,7 @@ export const IndexPageTemplate = ({
                     <p>{description}</p>
                   </div>
                 </div>
-                <Features gridItems={intro.blurbs} />
+                <Features gridItems={photo_tiles.tiles} />
                 <div className="columns">
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/products">
@@ -111,7 +109,7 @@ export const IndexPageTemplate = ({
           </div>
         </div>
       </div>
-    </section> */}
+    </section>
   </div>
 )
 
@@ -134,13 +132,11 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        main_image={frontmatter.image}
         title={frontmatter.title}
-        heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        aboutme={frontmatter.aboutme}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
+        main_image={frontmatter.main_image}
+        about_me_image={frontmatter.about_me_image}
+        photo_tiles={frontmatter.photo_tiles}
         content={html}
       />
     </Layout>
@@ -181,13 +177,7 @@ export const pageQuery = graphql`
         }
         photo_tiles {
           tiles {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+            image 
             show_title
             role
           }
