@@ -51,7 +51,7 @@ GalleryPage.propTypes = {
 export default GalleryPage
 
 export const galleryPageQuery = graphql`
-  query AboutPage($id: String!) {
+  query GalleryPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
