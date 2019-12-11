@@ -53,12 +53,12 @@ collections:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
       - file: "src/pages/resume/index.md"
-          label: "Resume Page"
-          name: "resume"
-          fields:
-            - {label: "Template Key", name: "templateKey", widget: "hidden", default: "resume-page"}
-            - {label: Resume_image, name: resume_image, widget: image}
-            - {label: Headshot_image, name: headshot_image, widget: image}
+        label: "Resume Page"
+        name: "resume"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "resume-page"}
+          - {label: Resume_image, name: resume_image, widget: image}
+          - {label: Headshot_image, name: headshot_image, widget: image}
       - file: "src/pages/products/index.md"
         label: "Products Page"
         name: "products"
