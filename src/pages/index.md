@@ -1,32 +1,32 @@
 ---
 templateKey: index-page
 title: Berklea Going
-subheading: Singer, Dancer, Actor
-main_image: /img/headshot.png
+subheading: 'Singer, Dancer, Actor'
+main_image: /img/top-1-.jpg
 about_me_image: /img/headshot.png
 photo_tiles:
-  heading: Recent Performances
-  description: >
+  description: |
     Recent Performances
+  heading: Recent Performances
   tiles:
     - image: /img/coffee.png
-      show_title: Mama Mia
       role: Sohpie
+      show_title: Mama Mia
     - image: /img/coffee.png
-      show_title: Mama Mia
       role: Sohpie
+      show_title: Mama Mia
     - image: /img/coffee.png
-      show_title: Mama Mia
       role: Sohpie
+      show_title: Mama Mia
     - image: /img/coffee.png
-      show_title: Mama Mia
       role: Sohpie
+      show_title: Mama Mia
     - image: /img/coffee.png
-      show_title: Mama Mia
       role: Sohpie
+      show_title: Mama Mia
     - image: /img/coffee.png
-      show_title: Mama Mia
       role: Sohpie
+      show_title: Mama Mia
 ---
 Berklea first discovered her love for performing when she stepped onto The St. Louis MUNY stage as Young Kim in Showboat at the age of 7.
 
