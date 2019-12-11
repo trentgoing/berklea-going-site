@@ -29,7 +29,7 @@ photo_tiles:
       role: Sohpie
       show_title: Mama Mia
 ---
-Berklea first discovered her love for performing when she stepped onto The St. Louis MUNY stage as Young Kim in Showboat at the age of 7.
+Berklea first discovered her love for performing when she stepped onto The St. Louis MUNY stage as Young Kim in Showboat at the age of 7. 
 
 She went on to perform in the national tour of Irving Berlin's White Christmas as Susan Waverly at the age of 10 and has not looked back since.
 
