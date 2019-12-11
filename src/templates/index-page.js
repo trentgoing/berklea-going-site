@@ -177,7 +177,13 @@ export const pageQuery = graphql`
         }
         photo_tiles {
           tiles {
-            image 
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             show_title
             role
           }
