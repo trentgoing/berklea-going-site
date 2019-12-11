@@ -39,6 +39,7 @@ collections:
           - {label: Subheading, name: subheading, widget: string}
           - {label: Main_image, name: main_image, widget: image}
           - {label: About_me_image, name: about_me_image, widget: image}
+          - {label: Redirects_image, name: redirects_image, widget: image}
           - {label: "Body", name: "body", widget: "markdown"}
           - {label: Photo_tiles, name: photo_tiles, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Tiles, name: tiles, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Show_title, name: show_title, widget: text}, {label: Role, name: role, widget: text}]}]}
           # - {label: Heading, name: heading, widget: string}

@@ -4,6 +4,7 @@ title: Berklea Going
 subheading: 'Singer, Dancer, Actor'
 main_image: /img/top-1-.jpg
 about_me_image: /img/headshot.png
+redirects_image: /img/headshot.png
 photo_tiles:
   description: |
     Recent Performances

@@ -1,14 +1,14 @@
 import React from "react"
-import Background from "./Background"
-import Button from "./button"
+import Button from "./Button"
+import Img from "gatsby-image"
 
-const Redirects = () => (
+const Redirects = (props) => (
   <div style={{
     position: 'relative',
      height: `800px`,
     overflow: `hidden`
   }}>
-    <Background />
+    <Img fluid={props.image.childImageSharp.fluid} />
     <div  style={{
       position: 'absolute',
       left: `48%`,

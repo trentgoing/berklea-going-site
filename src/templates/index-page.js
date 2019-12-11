@@ -8,18 +8,16 @@ import BlogRoll from '../components/BlogRoll'
 import AboutMe from '../components/AboutMe'
 import Redirects from '../components/Redirects'
 
-
 export const IndexPageTemplate = ({
   main_image,
   title,
   heading,
   subheading,
-  aboutme,
   description,
   photo_tiles,
   content,
   about_me_image,
-  contentComponent
+  redirects_image
 }) => (
   <div>
     <div
@@ -71,6 +69,7 @@ export const IndexPageTemplate = ({
       </div>
     </div>
     <AboutMe image={about_me_image} content={content}/>
+    <Redirects image={redirects_image} />
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
@@ -115,6 +114,8 @@ export const IndexPageTemplate = ({
 
 IndexPageTemplate.propTypes = {
   main_image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  about_me_image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  redirects_image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,
@@ -136,6 +137,7 @@ const IndexPage = ({ data }) => {
         subheading={frontmatter.subheading}
         main_image={frontmatter.main_image}
         about_me_image={frontmatter.about_me_image}
+        redirects_image={frontmatter.redirects_image}
         photo_tiles={frontmatter.photo_tiles}
         content={html}
       />
@@ -169,6 +171,13 @@ export const pageQuery = graphql`
           }
         }
         about_me_image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        redirects_image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid
