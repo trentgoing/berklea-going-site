@@ -7,68 +7,24 @@ import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 import AboutMe from '../components/AboutMe'
 import Redirects from '../components/Redirects'
+import Hello from '../components/Hello'
+import { HTMLContent } from '../components/Content'
 
 export const IndexPageTemplate = ({
-  main_image,
   title,
-  heading,
   subheading,
+  main_image,
+  about_me_image,
+  content,
+  contentComponent,
+  redirects_image,
+  heading,
   description,
   photo_tiles,
-  content,
-  about_me_image,
-  redirects_image
 }) => (
   <div>
-    <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!main_image.childImageSharp && main_image ? main_image.childImageSharp.fluid.src : main_image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
-      </div>
-    </div>
-    <AboutMe image={about_me_image} content={content}/>
+    <Hello title={title} subheading={subheading} main_image={main_image} />
+    <AboutMe image={about_me_image} content={content} contentComponent={contentComponent} />
     <Redirects image={redirects_image} />
     <section className="section section--gradient">
       <div className="container">
@@ -125,6 +81,7 @@ IndexPageTemplate.propTypes = {
     blurbs: PropTypes.array,
   }),
   content: PropTypes.string,
+  contentComponent: PropTypes.func
 }
 
 const IndexPage = ({ data }) => {
@@ -140,6 +97,7 @@ const IndexPage = ({ data }) => {
         redirects_image={frontmatter.redirects_image}
         photo_tiles={frontmatter.photo_tiles}
         content={html}
+        contentComponent={HTMLContent}
       />
     </Layout>
   )
