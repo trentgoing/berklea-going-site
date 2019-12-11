@@ -11,7 +11,7 @@ const Button = ({ buttonLink, buttonTitle, backgroundColor }) => (
 )
 
 Button.propTypes = {
-  buttonLink: PropTypes.string,
+  buttonLink: PropTypes.string, 
   buttonTitle: PropTypes.string,
   backgroundColor: PropTypes.string,
 }
