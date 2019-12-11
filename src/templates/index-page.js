@@ -164,22 +164,23 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        image {
+        subheading
+        main_image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
         }
-        heading
-        subheading
-        aboutme {
-          title
-          description
+        about_me_image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
-        description
-        intro {
-          blurbs {
+        photo_tiles {
+          tiles {
             image {
               childImageSharp {
                 fluid(maxWidth: 240, quality: 64) {
@@ -187,7 +188,8 @@ export const pageQuery = graphql`
                 }
               }
             }
-            text
+            show_title
+            role
           }
           heading
           description
