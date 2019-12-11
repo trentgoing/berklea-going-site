@@ -3,7 +3,7 @@ templateKey: index-page
 title: Berklea Going
 subheading: 'Singer, Dancer, Actor'
 main_image: /img/top-1-.jpg
-about_me_image: /img/headshot.png
+about_me_image: /img/headshot.jpg
 redirects_image: /img/background.png
 photo_tiles:
   description: |
