@@ -80,7 +80,7 @@ IndexPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
-  content: PropTypes.string,
+  content: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   contentComponent: PropTypes.func
 }
 

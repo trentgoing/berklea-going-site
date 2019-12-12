@@ -1,7 +1,6 @@
 import React from "react"
-import Img from "gatsby-image"
 import Content from '../components/Content'
-
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 const IndexPage = (props) => {
   const AboutMeContent = props.contentComponent || Content
@@ -12,8 +11,8 @@ const IndexPage = (props) => {
       // marginBottom: `1.45rem`, 
       // display: `grid` 
     }}>
-      {/* <Headshot /> */}
-      <Img fluid={props.image.childImageSharp.fluid} />
+      <PreviewCompatibleImage imageInfo={props.image} />
+      {/* <Img fluid={!!props.image.childImageSharp && props.image ? props.image.childImageSharp.fluid : props.image} /> */}
       <div style={{
               position: `absolute`,
               color: `white`,

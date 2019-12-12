@@ -1,6 +1,6 @@
 import React from "react"
 import Button from "./Buttons"
-import Img from "gatsby-image"
+import PreviewCompatibleImage from "./PreviewCompatibleImage"
 
 const Redirects = (props) => (
   <div style={{
@@ -8,7 +8,8 @@ const Redirects = (props) => (
      height: `800px`,
     overflow: `hidden`
   }}>
-    <Img fluid={props.image.childImageSharp.fluid} />
+    {/* <Img fluid={!!props.image.childImageSharp && props.image ? props.image.childImageSharp.fluid : props.image} /> */}
+    <PreviewCompatibleImage imageInfo={props.image} />
     <div  style={{
       position: 'absolute',
       left: `48%`,

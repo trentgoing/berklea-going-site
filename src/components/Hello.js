@@ -5,7 +5,7 @@ const Hello = ({title, main_image, subheading}) => (
     className="full-width-image margin-top-0"
     style={{
       backgroundImage: `url(${
-        !!main_image.childImageSharp && main_image ? main_image.childImageSharp.fluid.src : main_image
+        !!main_image.childImageSharp && !!main_image ? main_image.childImageSharp.fluid.src : main_image
       })`,
       backgroundPosition: `top left`,
       backgroundAttachment: `fixed`,
