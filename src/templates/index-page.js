@@ -4,7 +4,6 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll'
 import AboutMe from '../components/AboutMe'
 import Redirects from '../components/Redirects'
 import Hello from '../components/Hello'
@@ -18,49 +17,23 @@ export const IndexPageTemplate = ({
   content,
   contentComponent,
   redirects_image,
-  heading,
-  description,
   photo_tiles,
 }) => (
   <div>
     <Hello title={title} subheading={subheading} main_image={main_image} />
     <AboutMe image={about_me_image} content={content} contentComponent={contentComponent} />
     <Redirects image={redirects_image} />
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={photo_tiles.tiles} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <section className="section"
+      style={{
+        padding: `0px`
+      }}>
+      <div className="content">
+        <Features gridItems={photo_tiles.tiles} />
+        <div className="columns">
+          <div className="column is-12 has-text-centered">
+            <Link className="btn" to="/contact">
+              GET IN TOUCH!
+            </Link>
           </div>
         </div>
       </div>
@@ -73,10 +46,8 @@ IndexPageTemplate.propTypes = {
   about_me_image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   redirects_image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  heading: PropTypes.string,
   subheading: PropTypes.string,
   aboutme: PropTypes.object,
-  description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),

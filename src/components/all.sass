@@ -45,11 +45,12 @@ $black: #2b2523
 .full-width-image
     width: 100vw
     height: 47vw
-    background-size: cover
-    background-position: bottom
     display: flex
     justify-content: center
     align-items: center
+    background-position: top center
+    background-attachment: fixed
+    background-size: 100vw
 
 .btn
     display: inline-block
@@ -125,6 +126,11 @@ $menu-label-color: $white-ter
 
 @import "~bulma"
 
+// tiles should have no padding
+.section
+  .tiles
+    padding: 0px;
+
 
 // responsiveness
 +tablet-only
@@ -138,6 +144,9 @@ $menu-label-color: $white-ter
     text-align: center;
     max-width: 70%;
     margin: 0 0 1em;
+  .full-width-image
+    background-size: 165vw
+    height: 78vw
 
 a.redirect-button
   justify-content: center;
@@ -169,3 +178,16 @@ a.redirect-button:hover
 .navbar
   position: fixed;
   width: 100%;
+
+
+
+.gallery-picture-info
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 255, 0.25);
+  opacity: 0%;
+
+.gallery-picture-info:hover
+   opacity: 100%
