@@ -13,15 +13,15 @@ photo_tiles:
     - image: /img/screen-shot-2019-12-12-at-3.32.46-pm.png
       role: Sophie Sheridan
       show_title: Mamma Mia at Tuts
-    - image: /img/coffee.png
-      role: Sohpie
-      show_title: Mama Mia
-    - image: /img/coffee.png
-      role: Sohpie
-      show_title: Mama Mia
-    - image: /img/coffee.png
-      role: Sohpie
-      show_title: Mama Mia
+    - image: /img/screen-shot-2019-12-12-at-3.35.34-pm.png
+      role: Sunday By the Sea Lead Bathing Beauty
+      show_title: High Button Shoes at City Center Encores!
+    - image: /img/screen-shot-2019-12-12-at-3.32.32-pm.png
+      role: Sunday by the Sea
+      show_title: High Button Shoes at City Center Encores!
+    - image: /img/screen-shot-2019-12-12-at-3.32.10-pm.png
+      role: Twin
+      show_title: Jerome Robbins' Broadway at the MUNY
     - image: /img/coffee.png
       role: Sohpie
       show_title: Mama Mia
