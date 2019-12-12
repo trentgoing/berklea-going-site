@@ -10,9 +10,9 @@ photo_tiles:
     Recent Performances
   heading: Recent Performances
   tiles:
-    - image: /img/coffee.png
-      role: Sohpie
-      show_title: Mama Mia
+    - image: /img/screen-shot-2019-12-12-at-3.32.46-pm.png
+      role: Sophie Sheridan
+      show_title: Mamma Mia at Tuts
     - image: /img/coffee.png
       role: Sohpie
       show_title: Mama Mia
