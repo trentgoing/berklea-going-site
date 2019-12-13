@@ -22,12 +22,15 @@ photo_tiles:
     - image: /img/screen-shot-2019-12-12-at-3.32.10-pm.png
       role: Twin
       show_title: Jerome Robbins' Broadway at the MUNY
-    - image: /img/coffee.png
-      role: Sohpie
-      show_title: Mama Mia
-    - image: /img/coffee.png
-      role: Sohpie
-      show_title: Mama Mia
+    - image: /img/screen-shot-2019-12-12-at-3.31.47-pm.png
+      role: Daphne
+      show_title: Holiday Inn at Paper Mill
+    - image: /img/screen-shot-2019-12-12-at-3.31.34-pm.png
+      role: ' '
+      show_title: Jerome Robbins' Broadway at the MUNY
+    - image: /img/screen-shot-2019-12-12-at-3.31.22-pm.png
+      role: Kathy Selden
+      show_title: Singin' in the Rain at the MUNY
 ---
 Berklea first discovered her love for performing when she stepped onto The St. Louis MUNY stage as Young Kim in Showboat at the age of 7. 
 
