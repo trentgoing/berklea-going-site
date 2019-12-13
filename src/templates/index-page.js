@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Features from '../components/Features'
@@ -8,6 +8,7 @@ import AboutMe from '../components/AboutMe'
 import Redirects from '../components/Redirects'
 import Hello from '../components/Hello'
 import { HTMLContent } from '../components/Content'
+import Button from '../components/Buttons'
 
 export const IndexPageTemplate = ({
   title,
@@ -30,10 +31,9 @@ export const IndexPageTemplate = ({
       <div className="content">
         <Features gridItems={photo_tiles.tiles} />
         <div className="columns">
-          <div className="column is-12 has-text-centered">
-            <Link className="btn" to="/contact">
-              GET IN TOUCH!
-            </Link>
+          {/* <div className="column "></div> */}
+          <div className="column is-offset-1 is-10 ">
+            <Button backgroundColor={`three`} buttonLink={`/contact/`} buttonTitle={`GET IN TOUCH!`}/>
           </div>
         </div>
       </div>

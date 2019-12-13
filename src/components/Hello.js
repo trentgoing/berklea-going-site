@@ -6,11 +6,7 @@ const Hello = ({title, main_image, subheading}) => (
     style={{
       backgroundImage: `url(${
         !!main_image.childImageSharp && !!main_image ? main_image.childImageSharp.fluid.src : main_image
-      })`,
-      // backgroundPosition: `top left`,
-      // backgroundAttachment: `fixed`,
-      // backgroundSize: `contain`,
-      // backgroundSize: `100vw`
+      })`
     }}
   >
     <h1 style={{
@@ -30,7 +26,7 @@ const Hello = ({title, main_image, subheading}) => (
           }}>
       {title}
     </h1>
-    <h3 className="has-text-weight-bold is-size-1-mobile is-size-5-tablet is-size-4-widescreen"
+    <h3 className="has-text-weight-bold is-size-4-widescreen" // is-size-5-mobile is-size-5-tablet "
         style={{
             position: `absolute`,
             color: `white`,
@@ -39,7 +35,7 @@ const Hello = ({title, main_image, subheading}) => (
             textAlign: 'center',
             // top: `35%`,
             left: `50%`,
-            fontSize: '2.0vw',
+            // fontSize: '2.0vw',
             transform: `translate(-50%, -50%)`
           }}>
       <em>{subheading}</em>

@@ -11,7 +11,7 @@ const IndexPage = (props) => {
       // marginBottom: `1.45rem`, 
       // display: `grid` 
     }}>
-      <PreviewCompatibleImage imageInfo={props.image} />
+      <PreviewCompatibleImage imageInfo={{image: props.image}} />
       {/* <Img fluid={!!props.image.childImageSharp && props.image ? props.image.childImageSharp.fluid : props.image} /> */}
       <div style={{
               position: `absolute`,

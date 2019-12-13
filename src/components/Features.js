@@ -5,22 +5,15 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 const FeatureGrid = ({ gridItems }) => (
   <div className="columns is-multiline">
     {gridItems.map(item => (
-      <div key={item.role} className="column is-4" style={{padding: `0px`}}>
+      <div key={item.role + '-' + item.show_title} className="column is-4" style={{padding: `0px`}}>
         <section className="section tiles">
-          <div
-            style={{
-              width: '100%',
-              display: 'inline-block',
-              overflow: `hidden`,
-              position: `relative`
-            }}
-          >
-            <div>
+          <div className="tile-container">
+            <div className="image-wrapper">
               <PreviewCompatibleImage imageInfo={item} />
             </div>
             <div className="gallery-picture-info">
               <div style={{padding: `30px`}}>
-                <p className="has-text-weight-bold is-size-4-mobile is-size-4-tablet is-size-4-widescreen"
+                <p className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-5-widescreen"
                 style={{
                   color: `white`,
                   textDecoration: `none`,
