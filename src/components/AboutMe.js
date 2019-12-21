@@ -6,7 +6,7 @@ const IndexPage = (props) => {
   const AboutMeContent = props.contentComponent || Content
 
   return (
-    <div style={{
+    <div id={"about-me"} style={{
       position: 'relative', 
       // marginBottom: `1.45rem`, 
       // display: `grid` 

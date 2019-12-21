@@ -8,9 +8,9 @@ const Footer = class extends React.Component {
       <footer className="footer has-background-black has-text-white-ter">
         <div className="content has-text-centered has-background-black has-text-white-ter">
           <div className="container has-background-black has-text-white-ter">
-            <div className="columns is-mobile">
+            <div className="columns">
               <div className="column is-10">
-                <section className="navbar-item" style={{color: `white`}}>
+                <section className="navbar-item" style={{color: `grey`}}>
                   Actor and Model
                 </section>
               </div>

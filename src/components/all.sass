@@ -84,6 +84,9 @@ $black: #2b2523
 footer.footer
   padding: 0rem 0rem 0rem
   background-color: transparent
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
 
 //Menu overrides
 $menu-item-color: $white-ter
@@ -160,7 +163,6 @@ a.redirect-button
   letter-spacing: 0.18em;
   font-size: 2.5vw;
   color: #DAEDFF;
-  margin-bottom: 10%;
   position: relative;
   font-weight: bold;
 
@@ -179,8 +181,27 @@ a.redirect-button:hover
 .navbar
   position: fixed;
   width: 100%;
+  background-color: rgba(150,150,150, 0.6);
 
+.navbar-item
+  color: #ffffff
+  font-family: Verdana;
+  letter-spacing: 0.18em;
+  position: relative;
+  font-weight: bold;
+  text-transform: uppercase;
 
+.navbar.is-active
+  background-color: rgba(105,105,105, 1);
+
+.navbar-item.is-active
+  color: #000000
+
+.navbar-menu 
+  background-color: transparent;
+
+.navbar-burger
+  color: #ffffff
 
 .gallery-picture-info
   position: absolute;
@@ -213,3 +234,7 @@ a.redirect-button:hover
 +mobile
   .tile-container
     height: 75vw;
+
+.site-background
+  background-color: white;
+  height: 100%;

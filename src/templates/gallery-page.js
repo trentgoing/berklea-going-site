@@ -2,8 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+// import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const GalleryPageTemplate = ({ content, contentComponent }) => {
+export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, contentComponent }) => {
+  // const PageContent = contentComponent || Content
 
   return (
     <section className="section section--gradient">
@@ -11,10 +13,25 @@ export const GalleryPageTemplate = ({ content, contentComponent }) => {
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                title
-              </h2>
-              {/* <PageContent className="content" content={content} /> */}
+              <h1 style={{
+                      position: `absolute`,
+                      color: `black`,
+                      textDecoration: `none`,
+                      fontFamily: `Verdana`,
+                      letterSpacing: `0.15em`,
+                      fontSize: '4.5vw',
+                      // textAlign: 'center',
+                      marginTop: `10vh`,
+                      left: `50%`,
+                      width: `75%`,
+                      transform: `translate(-50%, -100%)`,
+                      fontWeight: `bold`,
+                      textTransform: `uppercase`
+                    }}>
+                PhotoGallery
+              </h1>
+              {JSON.stringify(headshots)}
+              {JSON.stringify(shows)}
             </div>
           </div>
         </div>
@@ -24,18 +41,19 @@ export const GalleryPageTemplate = ({ content, contentComponent }) => {
 }
 
 GalleryPageTemplate.propTypes = {
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
+  headshots: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  shows: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }
 
 const GalleryPage = ({ data }) => {
+  const { frontmatter } = data.markdownRemark
 
   return (
     <Layout>
       <GalleryPageTemplate
         // contentComponent={HTMLContent}
-        // title={post.frontmatter.title}
-        // content={post.html}
+        headshots={frontmatter.headshots}
+        shows={frontmatter.shows}
       />
     </Layout>
   )
@@ -47,12 +65,32 @@ GalleryPage.propTypes = {
 
 export default GalleryPage
 
-export const galleryPageQuery = graphql`
-  query GalleryPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      html
+export const GalleryPageQuery = graphql`
+  query GalleryPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "gallery-page" } }) {
       frontmatter {
-        title
+        headshots {
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  base64
+                }
+              }
+          }
+        }
+        shows {
+          title
+          theater
+          photos {
+            image {
+              childImageSharp{
+                fluid(maxWidth:2048, quality:100) {
+                  base64
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
