@@ -4,7 +4,7 @@ import React from "react"
 
 const Button = ({ buttonLink, buttonTitle, backgroundColor }) => (
   <Link to={buttonLink} className={'redirect-button ' + backgroundColor}>
-    <div style={{ margin: `auto`}}>
+    <div style={{ margin: `auto`, textTransform: `uppercase`}}>
       { buttonTitle }
     </div>
   </Link>

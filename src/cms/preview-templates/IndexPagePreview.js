@@ -12,18 +12,9 @@ const IndexPagePreview = ({ entry, getAsset, widgetFor }) => {
         subheading={data.subheading}
         main_image={data.main_image}
         about_me_image={{image: data.about_me_image}}
-        // about_me_image={data.about_me_image}
         redirects_image={{image: data.redirects_image}}
         photo_tiles={data.photo_tiles || { blurbs: [] }}
         content={widgetFor('body')}
-        // image={data.image}
-        // title={data.title}
-        // heading={data.heading}
-        // subheading={data.subheading}
-        // description={data.description}
-        // intro={data.intro || { blurbs: [] }}
-        // aboutme={data.aboutme || {}}
-        // content={widgetFor('body')}
       />
     )
   } else {

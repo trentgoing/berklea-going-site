@@ -32,16 +32,23 @@ export const ResumePageTemplate = ({resume_image, headshot_image}) => {//{ title
             {/* </div> */}
           </div>
         </div>
-        <div className="section">
+        {/* <div className="section"> */}
           <div className="columns">
             <div className="column is-6">
-              <PreviewCompatibleImage imageInfo={{image:resume_image}} />
+              <div>
+                <PreviewCompatibleImage imageInfo={{image:resume_image}} />
+              </div>
             </div>
             <div className="column is-6">
-              <PreviewCompatibleImage imageInfo={{image: headshot_image}} />
+              <div className="headshot-wrapper" style={{
+                    position: `relative`,
+                    marginTop: `50%`,
+                    transform: `translate(0px, -50%)`}}>
+                <PreviewCompatibleImage imageInfo={{image: headshot_image}} />
+              </div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
           <div className="columns">
             <div className="column is-offset-1 is-10 ">
               <Button backgroundColor={`three`} buttonLink={`/contact/`} buttonTitle={`Download Resume`}/>
@@ -84,7 +91,7 @@ export const resumePageQuery = graphql`
       frontmatter {
         resume_image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxHeight: 2048, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
