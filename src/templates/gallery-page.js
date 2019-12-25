@@ -1,8 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-// import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import PreviewCompatibleContainedImage from '../components/PreviewCompatibleContainedImage';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, contentComponent }) => {
   // const PageContent = contentComponent || Content
@@ -12,29 +13,70 @@ export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, 
       <div className="container">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h1 style={{
-                      position: `absolute`,
-                      color: `black`,
-                      textDecoration: `none`,
-                      fontFamily: `Verdana`,
-                      letterSpacing: `0.15em`,
-                      fontSize: '4.5vw',
-                      // textAlign: 'center',
-                      marginTop: `10vh`,
-                      left: `50%`,
-                      width: `75%`,
-                      transform: `translate(-50%, -100%)`,
-                      fontWeight: `bold`,
-                      textTransform: `uppercase`
-                    }}>
-                PhotoGallery
-              </h1>
-              {JSON.stringify(headshots)}
-              {JSON.stringify(shows)}
+            <h1 style={{
+                    color: `black`,
+                    textDecoration: `none`,
+                    fontFamily: `Verdana`,
+                    letterSpacing: `0.15em`,
+                    fontSize: '4.5vw',
+                    marginTop: `10px`,
+                    left: `50%`,
+                    width: `75%`,
+                    fontWeight: `bold`,
+                    textTransform: `uppercase`
+                  }}>
+              Photo Gallery
+            </h1>
+          </div>
+        </div>
+        <div className="columns">
+          <div className="column is-12">
+            <div className="carousel">
+              <div className="carousel-frame">
+            {headshots.map((headshot, index) => {
+              return (
+                <div key={headshot.image.childImageSharp.fluid.base64 + index} className='headshot-image'>
+                  <PreviewCompatibleContainedImage imageInfo={{image:headshot.image}} />
+                </div>
+              );
+            })}
+            </div>
             </div>
           </div>
         </div>
+        <div className="columns">
+          <div className="column is-10 is-offset-1">
+            <h2 style={{
+                    color: `black`,
+                    textDecoration: `none`,
+                    fontFamily: `Verdana`,
+                    letterSpacing: `0.05em`,
+                    fontSize: '2.25vw',
+                    marginTop: `10px`,
+                    left: `60%`,
+                    width: `75%`,
+                    fontWeight: `bold`,
+                    textTransform: `uppercase`
+                  }}>
+              RECENT PRODUCTIONS
+            </h2>
+          </div>
+        </div>
+        {shows.map((show, index) => {
+          return (
+            <div key={show.title + index}>
+              <h3>{show.title}</h3>
+              <h4>{show.theater}</h4>
+              {show.photos.map((photo, index) => {
+                return (
+                  <div key={photo.image.childImageSharp.fluid.base64 + index}>
+                    <PreviewCompatibleImage imageInfo={{image:photo.image}} />
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </section>
   )
@@ -72,8 +114,8 @@ export const GalleryPageQuery = graphql`
         headshots {
             image {
               childImageSharp {
-                fluid(maxWidth: 2048, quality: 100) {
-                  base64
+                fluid(maxHeight: 300, quality: 100) {
+                  ...GatsbyImageSharpFluid
                 }
               }
           }
@@ -84,8 +126,8 @@ export const GalleryPageQuery = graphql`
           photos {
             image {
               childImageSharp{
-                fluid(maxWidth:2048, quality:100) {
-                  base64
+                fluid(maxHeight: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
