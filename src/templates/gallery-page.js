@@ -5,9 +5,61 @@ import Layout from '../components/Layout';
 import PreviewCompatibleContainedImage from '../components/PreviewCompatibleContainedImage';
 // import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import { GalleryBlock } from '../components/Gallery_block';
+import Carousel from "react-images";
 
 export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, contentComponent }) => {
   // const PageContent = contentComponent || Content
+  let transformedHeadshots = headshots.map((headshot) => {
+    headshot.source = !!headshot.image.childImageSharp && !!headshot.image.childImageSharp.fixed.src ? headshot.image.childImageSharp.fixed.src : headshot.src;
+    headshot.caption = ""; 
+    return headshot;
+  })
+
+  const customStyles = {
+    view: (base, state) => ({
+      ...base,
+      // paddingBottom: `${10 / 16 * 100}%`,
+      overflow: 'hidden',
+      position: 'relative',
+      transition: 'filter 300ms',
+      height: '60vh',
+      width: '60vw',
+      '& > img': {
+        // position: 'absolute',
+        // left: 0,
+        // top: 0,
+        maxHeight: '60vh',
+        // width: '60vw',
+      },
+    }),
+    container: (base, state) => {
+      return {
+        ...base,
+        height: '60vh',
+        width: '60vw',
+        margin: 'auto'
+      }
+    },
+    navigationNext: (base, state) => {
+      return { 
+        ...base,
+        color: 'black'
+      }
+    },
+    navigationPrev: (base, state) => {
+      return { 
+        ...base,
+        color: 'black'
+      }
+    },
+    footer: (base, state) => {
+      const opacity = state.interactionIsIdle ? 0 : 1;
+      const transition = 'opacity 300ms';
+  
+      return { ...base, opacity, transition };
+    }
+  }
+  
 
   return (
     <section className="section section--gradient">
@@ -33,15 +85,7 @@ export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, 
         <div className="columns">
           <div className="column is-12">
             <div className="carousel">
-              <div className="carousel-frame">
-                {headshots.map((headshot, index) => {
-                  return (
-                    <div key={headshot.image.childImageSharp.fluid.base64 + index} className='headshot-image'>
-                      <PreviewCompatibleContainedImage imageInfo={{image:headshot.image}} />
-                    </div>
-                  );
-                })}
-            </div>
+                <Carousel views={transformedHeadshots} hideControlsWhenIdle={false} styles={customStyles} frameProps={{autoSize: false}} />
             </div>
           </div>
         </div>
@@ -63,7 +107,7 @@ export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, 
             </h2>
           </div>
         </div>
-        { shows.map((show, index) => (<GalleryBlock show={show} index={index}/>)) }
+        { shows.map((show, index) => (<GalleryBlock show={show} index={index} key={show.title}/>)) }
       </div>
     </section>
   )
@@ -101,8 +145,8 @@ export const GalleryPageQuery = graphql`
         headshots {
             image {
               childImageSharp {
-                fluid(maxHeight: 300, quality: 100) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 1200, quality: 100) {
+                  ...GatsbyImageSharpFixed
                 }
               }
           }
@@ -113,12 +157,14 @@ export const GalleryPageQuery = graphql`
           photos {
             src {
               childImageSharp{
-                fluid(maxHeight: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 1200) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
             text
+            height
+            width
           }
         }
       }
