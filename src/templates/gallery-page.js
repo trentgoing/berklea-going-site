@@ -111,13 +111,14 @@ export const GalleryPageQuery = graphql`
           title
           theater
           photos {
-            image {
+            src {
               childImageSharp{
                 fluid(maxHeight: 2048, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
+            text
           }
         }
       }

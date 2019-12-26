@@ -4,11 +4,17 @@ import PreviewCompatibleContainedImage from '../components/PreviewCompatibleCont
 import Gallery from "react-photo-gallery";
 
 export const GalleryBlock = ({show, index}) => {
+  let transformedPhotos = show.photos.map((photo) => {
+    photo.src = photo.src.childImageSharp.fluid.base64;
+    photo.width = photo.width
+    return photo;
+  })
+  console.log(transformedPhotos);
   return (
     <div key={show.title + index}>
       <h3>{show.title}</h3>
       <h4>{show.theater}</h4>
-      <Gallery photos={show.photos} />
+      <Gallery photos={transformedPhotos} />
       {/* {show.photos.map((photo, index) => {
         return (
           <div key={photo.image.childImageSharp.fluid.base64 + index}>
