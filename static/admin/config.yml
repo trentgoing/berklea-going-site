@@ -80,7 +80,7 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "gallery-page"}
           - {label: Headshots, name: headshots, widget: list, fields: [{label: Image, name: image, widget: image}]}
-          - {label: Shows, name: shows, widget: list, fields: [{label: Title, name: title, widget: string}, {label: Theater, name: theater, widget: string}, {label: Photos, name: photos, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
+          - {label: Shows, name: shows, widget: list, fields: [{label: Title, name: title, widget: string}, {label: Theater, name: theater, widget: string}, {label: Photos, name: photos, widget: list, fields: [{label: src, name: src, widget: image}, {label: Text, name: text, widget: text}, {label: Width, name: width, widget: text}, {label: Height, name: height, widget: text}]}]}
       - file: "src/pages/media/index.md"
         label: "Media Page"
         name: "media"

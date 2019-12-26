@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import PreviewCompatibleContainedImage from '../components/PreviewCompatibleContainedImage';
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+// import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import { GalleryBlock } from '../components/Gallery_block';
 
 export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, contentComponent }) => {
   // const PageContent = contentComponent || Content
@@ -33,13 +34,13 @@ export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, 
           <div className="column is-12">
             <div className="carousel">
               <div className="carousel-frame">
-            {headshots.map((headshot, index) => {
-              return (
-                <div key={headshot.image.childImageSharp.fluid.base64 + index} className='headshot-image'>
-                  <PreviewCompatibleContainedImage imageInfo={{image:headshot.image}} />
-                </div>
-              );
-            })}
+                {headshots.map((headshot, index) => {
+                  return (
+                    <div key={headshot.image.childImageSharp.fluid.base64 + index} className='headshot-image'>
+                      <PreviewCompatibleContainedImage imageInfo={{image:headshot.image}} />
+                    </div>
+                  );
+                })}
             </div>
             </div>
           </div>
@@ -62,21 +63,7 @@ export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, 
             </h2>
           </div>
         </div>
-        {shows.map((show, index) => {
-          return (
-            <div key={show.title + index}>
-              <h3>{show.title}</h3>
-              <h4>{show.theater}</h4>
-              {show.photos.map((photo, index) => {
-                return (
-                  <div key={photo.image.childImageSharp.fluid.base64 + index}>
-                    <PreviewCompatibleImage imageInfo={{image:photo.image}} />
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
+        { shows.map((show, index) => (<GalleryBlock show={show} index={index}/>)) }
       </div>
     </section>
   )
