@@ -24,14 +24,10 @@ export const IndexPageTemplate = ({
     <Hello title={title} subheading={subheading} main_image={main_image} />
     <AboutMe image={about_me_image} content={content} contentComponent={contentComponent} />
     <Redirects image={redirects_image} />
-    <section className="section"
-      style={{
-        padding: `0px`
-      }}>
+    <section className="section" style={{ padding: `0px`}}>
       <div className="content">
         <Features gridItems={photo_tiles.tiles} />
         <div className="columns">
-          {/* <div className="column "></div> */}
           <div className="column is-offset-1 is-10 ">
             <Button backgroundColor={`three`} buttonLink={`/contact/`} buttonTitle={`GET IN TOUCH!`}/>
           </div>

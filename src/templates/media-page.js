@@ -2,6 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Shared/Layout'
+import PageTitle from '../components/Shared/PageTitle'
+import Subtitle from '../components/Shared/Subtitle'
+import Press from '../components/Media/Press'
+import Videos from '../components/Media/Videos'
 
 export const MediaPageTemplate = ({videos, press}) => {//{ title, content, contentComponent }) => {
   // const PageContent = contentComponent || Content
@@ -9,98 +13,17 @@ export const MediaPageTemplate = ({videos, press}) => {//{ title, content, conte
   return (
     <section className="section section--gradient">
       <div className="container">
+        <PageTitle title="Media" />
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 style={{
-                    color: `black`,
-                    textDecoration: `none`,
-                    fontFamily: `Verdana`,
-                    letterSpacing: `0.15em`,
-                    fontSize: '4.5vw',
-                    marginTop: `10px`,
-                    left: `50%`,
-                    width: `75%`,
-                    fontWeight: `bold`,
-                    textTransform: `uppercase`
-                  }}>
-              Media
-            </h1>
+            <Subtitle title="Recent Productions" />
           </div>
         </div>
+        <Videos videos={videos} />
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h2 style={{
-                    color: `black`,
-                    textDecoration: `none`,
-                    fontFamily: `Verdana`,
-                    letterSpacing: `0.05em`,
-                    fontSize: '2.25vw',
-                    marginTop: `10px`,
-                    left: `60%`,
-                    width: `75%`,
-                    fontWeight: `bold`,
-                    textTransform: `uppercase`
-                  }}>
-              RECENT PRODUCTIONS
-            </h2>
-          </div>
-        </div>
-        {videos.map(({video}, index) => {
-          let side = index === 0 ? '' : index % 2 === 0 ? 'right' : 'left';
-          return(
-            <div className="columns" key={video+index}>
-              <div className="column is-12">
-                <div className={`video-container ${side}`}>
-                <iframe id="ytplayer" type="text/html" width="640" height="360" title={video + "video"}
-                  src={video}
-                ></iframe>
-                </div>
-              </div>
-            </div>
-          )
-          })
-        }
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-          <h2 style={{
-                    color: `black`,
-                    textDecoration: `none`,
-                    fontFamily: `Verdana`,
-                    letterSpacing: `0.05em`,
-                    fontSize: '2.25vw',
-                    marginTop: `10px`,
-                    left: `60%`,
-                    width: `75%`,
-                    fontWeight: `bold`,
-                    textTransform: `uppercase`
-                  }}>
-              PRESS
-            </h2>
-            <div className="section">
-              {press.map((article, index) => {
-                return (
-                  <div className="columns" key={article + index}>
-                    <div className="column is-12">
-                      <div>
-                        <a href={article.link}>
-                          <h3 style={{
-                            fontFamily: `Verdana`,
-                            letterSpacing: `0.05em`,
-                            fontSize: '1.5vw',
-                            marginTop: `10px`,
-                            fontWeight: `bold`,
-                            textTransform: `uppercase`
-                          }}>
-                            {article.title}
-                          </h3>
-                        </a>
-                        <p>{article.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
+            <Subtitle title="Press" />
+            <Press press={press} />
           </div>
         </div>
       </div>

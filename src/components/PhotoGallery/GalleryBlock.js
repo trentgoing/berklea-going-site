@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from "react";
 import PropTypes from 'prop-types';
-// import PreviewCompatibleContainedImage from '../components/PreviewCompatibleContainedImage';
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 

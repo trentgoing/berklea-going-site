@@ -1,12 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import Layout from '../components/Shared/Layout';
-import { GalleryBlock } from '../components/PhotoGallery/GalleryBlock';
+import PropTypes from 'prop-types';
 import Carousel from "react-images";
+import Layout from '../components/Shared/Layout';
+import PageTitle from '../components/Shared/PageTitle';
+import { GalleryBlock } from '../components/PhotoGallery/GalleryBlock';
+import Subtitle from '../components/Shared/Subtitle';
 
-export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, contentComponent }) => {
-  // const PageContent = contentComponent || Content
+export const GalleryPageTemplate = ({headshots, shows}) => {
+
   let transformedHeadshots = headshots.map((headshot) => {
     headshot.source = !!headshot.image.childImageSharp && !!headshot.image.childImageSharp.fixed.src ? headshot.image.childImageSharp.fixed.src : headshot.src;
     headshot.caption = ""; 
@@ -14,23 +16,18 @@ export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, 
   })
 
   const customStyles = {
-    view: (base, state) => ({
+    view: (base) => ({
       ...base,
-      // paddingBottom: `${10 / 16 * 100}%`,
       overflow: 'hidden',
       position: 'relative',
       transition: 'filter 300ms',
       height: '60vh',
       width: '60vw',
       '& > img': {
-        // position: 'absolute',
-        // left: 0,
-        // top: 0,
         maxHeight: '60vh',
-        // width: '60vw',
       },
     }),
-    container: (base, state) => {
+    container: (base) => {
       return {
         ...base,
         height: '60vh',
@@ -38,13 +35,13 @@ export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, 
         margin: 'auto'
       }
     },
-    navigationNext: (base, state) => {
+    navigationNext: (base) => {
       return { 
         ...base,
         color: 'black'
       }
     },
-    navigationPrev: (base, state) => {
+    navigationPrev: (base) => {
       return { 
         ...base,
         color: 'black'
@@ -53,33 +50,14 @@ export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, 
     footer: (base, state) => {
       const opacity = state.interactionIsIdle ? 0 : 1;
       const transition = 'opacity 300ms';
-  
       return { ...base, opacity, transition };
     }
   }
-  
 
   return (
     <section className="section section--gradient">
       <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 style={{
-                    color: `black`,
-                    textDecoration: `none`,
-                    fontFamily: `Verdana`,
-                    letterSpacing: `0.15em`,
-                    fontSize: '4.5vw',
-                    marginTop: `10px`,
-                    left: `50%`,
-                    width: `75%`,
-                    fontWeight: `bold`,
-                    textTransform: `uppercase`
-                  }}>
-              Photo Gallery
-            </h1>
-          </div>
-        </div>
+        <PageTitle title="Photo Gallery" />
         <div className="columns">
           <div className="column is-12">
             <div className="carousel">
@@ -89,25 +67,8 @@ export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, 
         </div>
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h2 style={{
-                    color: `black`,
-                    textDecoration: `none`,
-                    fontFamily: `Verdana`,
-                    letterSpacing: `0.05em`,
-                    fontSize: '2.25vw',
-                    marginTop: `10px`,
-                    left: `60%`,
-                    width: `75%`,
-                    fontWeight: `bold`,
-                    textTransform: `uppercase`
-                  }}>
-              RECENT PRODUCTIONS
-            </h2>
-          </div>
-        </div>
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
             <div className="section section-gradient">
+              <Subtitle title="Recent Productions" />
               { shows.map((show, index) => (<GalleryBlock show={show} index={index} key={show.title}/>)) }
             </div>
           </div>
@@ -128,7 +89,6 @@ const GalleryPage = ({ data }) => {
   return (
     <Layout>
       <GalleryPageTemplate
-        // contentComponent={HTMLContent}
         headshots={frontmatter.headshots}
         shows={frontmatter.shows}
       />

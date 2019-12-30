@@ -3,55 +3,35 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Shared/Layout'
 import PreviewCompatibleImage from '../components/Shared/PreviewCompatibleImage'
+import PageTitle from '../components/Shared/PageTitle'
 
 export const ResumePageTemplate = ({resume_image, headshot_image, resume_pdf}) => {
 
   return (
     <section className="section section--gradient">
       <div className="container">
+        <PageTitle title="Resume" />
         <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 style={{
-                    color: `black`,
-                    textDecoration: `none`,
-                    fontFamily: `Verdana`,
-                    letterSpacing: `0.15em`,
-                    fontSize: '4.5vw',
-                    // textAlign: 'center',
-                    marginTop: `10px`,
-                    left: `50%`,
-                    width: `75%`,
-                    fontWeight: `bold`,
-                    textTransform: `uppercase`
-                  }}>
-              Resume
-            </h1>
+          <div className="column is-6">
+            <a href={resume_pdf.publicURL}  target="_blank" rel="noopener noreferrer" >
+              <PreviewCompatibleImage imageInfo={{image:resume_image}} />
+            </a>
+          </div>
+          <div className="column is-6">
+            <div className="headshot-wrapper">
+              <PreviewCompatibleImage imageInfo={{image: headshot_image}} />
+            </div>
           </div>
         </div>
-          <div className="columns">
-            <div className="column is-6">
-              <div>
-                <a href={resume_pdf.publicURL}  target="_blank" rel="noopener noreferrer" ><PreviewCompatibleImage imageInfo={{image:resume_image}} /></a>
+        <div className="columns">
+          <div className="column is-offset-1 is-10 ">
+            <a href={resume_pdf.publicURL} target="_blank" rel="noopener noreferrer" className="redirect-button three">
+              <div style={{ margin: `auto`, textTransform: `uppercase`}}>
+                DOWNLOAD
               </div>
-            </div>
-            <div className="column is-6">
-              <div className="headshot-wrapper" style={{
-                    position: `relative`,
-                    marginTop: `50%`,
-                    transform: `translate(0px, -50%)`}}>
-                <PreviewCompatibleImage imageInfo={{image: headshot_image}} />
-              </div>
-            </div>
+            </a>
           </div>
-          <div className="columns">
-            <div className="column is-offset-1 is-10 ">
-              <a href={resume_pdf.publicURL} target="_blank" rel="noopener noreferrer" className="redirect-button three">
-                <div style={{ margin: `auto`, textTransform: `uppercase`}}>
-                  DOWNLOAD
-                </div>
-              </a>
-            </div>
-          </div>
+        </div>
       </div>
     </section>
   )
