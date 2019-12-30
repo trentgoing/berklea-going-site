@@ -17,7 +17,6 @@ const Hello = ({title, main_image, subheading}) => (
             letterSpacing: `0.28em`,
             fontSize: '5.5vw',
             textAlign: 'center',
-            // top: `20%`,
             left: `50%`,
             width: `75%`,
             transform: `translate(-50%, -100%)`,
@@ -33,9 +32,7 @@ const Hello = ({title, main_image, subheading}) => (
             textDecoration: `none`,
             fontFamily: `georgia`,
             textAlign: 'center',
-            // top: `35%`,
             left: `50%`,
-            // fontSize: '2.0vw',
             transform: `translate(-50%, -50%)`
           }}>
       <em>{subheading}</em>

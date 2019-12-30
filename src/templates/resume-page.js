@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import Layout from '../components/Shared/Layout'
+import PreviewCompatibleImage from '../components/Shared/PreviewCompatibleImage'
 
 export const ResumePageTemplate = ({resume_image, headshot_image, resume_pdf}) => {
 
@@ -31,7 +31,7 @@ export const ResumePageTemplate = ({resume_image, headshot_image, resume_pdf}) =
           <div className="columns">
             <div className="column is-6">
               <div>
-                <a href={resume_pdf.publicURL}  target="_blank" ><PreviewCompatibleImage imageInfo={{image:resume_image}} /></a>
+                <a href={resume_pdf.publicURL}  target="_blank" rel="noopener noreferrer" ><PreviewCompatibleImage imageInfo={{image:resume_image}} /></a>
               </div>
             </div>
             <div className="column is-6">
@@ -45,7 +45,7 @@ export const ResumePageTemplate = ({resume_image, headshot_image, resume_pdf}) =
           </div>
           <div className="columns">
             <div className="column is-offset-1 is-10 ">
-              <a href={resume_pdf.publicURL} target="_blank" className="redirect-button three">
+              <a href={resume_pdf.publicURL} target="_blank" rel="noopener noreferrer" className="redirect-button three">
                 <div style={{ margin: `auto`, textTransform: `uppercase`}}>
                   DOWNLOAD
                 </div>

@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout'
-import Features from '../components/Features'
-import AboutMe from '../components/AboutMe'
-import Redirects from '../components/Redirects'
-import Hello from '../components/Hello'
-import { HTMLContent } from '../components/Content'
-import Button from '../components/Buttons'
+import Layout from '../components/Shared/Layout'
+import Features from '../components/HomePage/Features'
+import AboutMe from '../components/HomePage/AboutMe'
+import Redirects from '../components/HomePage/Redirects'
+import Hello from '../components/HomePage/Hello'
+import { HTMLContent } from '../components/Shared/Content'
+import Button from '../components/Shared/Buttons'
 
 export const IndexPageTemplate = ({
   title,

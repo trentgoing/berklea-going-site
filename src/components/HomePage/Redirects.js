@@ -1,6 +1,6 @@
 import React from "react"
-import Button from "./Buttons"
-import PreviewCompatibleImage from "./PreviewCompatibleImage"
+import Button from "../Shared/Buttons"
+import PreviewCompatibleImage from "../Shared/PreviewCompatibleImage"
 
 const Redirects = (props) => (
   <div style={{

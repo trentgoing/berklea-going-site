@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-// import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import Layout from '../components/Shared/Layout'
 
 export const MediaPageTemplate = ({videos, press}) => {//{ title, content, contentComponent }) => {
   // const PageContent = contentComponent || Content

@@ -1,6 +1,6 @@
 import React from "react"
-import Content from '../components/Content'
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import Content from '../Shared/Content'
+import PreviewCompatibleImage from '../Shared/PreviewCompatibleImage'
 
 const IndexPage = (props) => {
   const AboutMeContent = props.contentComponent || Content
