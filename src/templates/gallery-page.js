@@ -107,7 +107,13 @@ export const GalleryPageTemplate = ({headshots, shows}) => {//{ title, content, 
             </h2>
           </div>
         </div>
-        { shows.map((show, index) => (<GalleryBlock show={show} index={index} key={show.title}/>)) }
+        <div className="columns">
+          <div className="column is-10 is-offset-1">
+            <div className="section section-gradient">
+              { shows.map((show, index) => (<GalleryBlock show={show} index={index} key={show.title}/>)) }
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

@@ -25,8 +25,34 @@ export const GalleryBlock = ({show, index}) => {
   console.log(transformedPhotos);
   return (
     <div key={show.title + index}>
-      <h3>{show.title}</h3>
-      <h4>{show.theater}</h4>
+      <h3 style={{
+        color: `black`,
+        textDecoration: `none`,
+        fontFamily: `Verdana`,
+        letterSpacing: `0.05em`,
+        fontSize: '2.5vw',
+        marginTop: `10px`,
+        left: `60%`,
+        width: `75%`,
+        fontWeight: `bold`,
+        textTransform: `uppercase`,
+        fontStyle: `italic`
+      }}>
+        {show.title}
+      </h3>
+      <h4 style={{
+        color: `black`,
+        textDecoration: `none`,
+        fontFamily: `Verdana`,
+        letterSpacing: `0.05em`,
+        fontSize: '1.5vw',
+        left: `60%`,
+        width: `75%`,
+        fontWeight: `bold`,
+        textTransform: `uppercase`,
+      }}>
+        {show.theater}
+      </h4>
       <Gallery photos={transformedPhotos} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (

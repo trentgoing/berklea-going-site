@@ -84,7 +84,16 @@ export const MediaPageTemplate = ({videos, press}) => {//{ title, content, conte
                     <div className="column is-12">
                       <div>
                         <a href={article.link}>
-                          <h3>{article.title}</h3>
+                          <h3 style={{
+                            fontFamily: `Verdana`,
+                            letterSpacing: `0.05em`,
+                            fontSize: '1.5vw',
+                            marginTop: `10px`,
+                            fontWeight: `bold`,
+                            textTransform: `uppercase`
+                          }}>
+                            {article.title}
+                          </h3>
                         </a>
                         <p>{article.description}</p>
                       </div>

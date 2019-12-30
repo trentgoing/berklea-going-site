@@ -8,7 +8,6 @@ const Redirects = (props) => (
      height: `800px`,
     overflow: `hidden`
   }}>
-    {/* <Img fluid={!!props.image.childImageSharp && props.image ? props.image.childImageSharp.fluid : props.image} /> */}
     <PreviewCompatibleImage imageInfo={{image: props.image}} />
     <div  style={{
       position: 'absolute',
