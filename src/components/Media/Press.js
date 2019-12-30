@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const Press = ({ press }) => (
   <div className="section">
-    {press.map((article, index) => {
+    {!!press ? press.map((article, index) => {
       return (
         <div className="columns" key={article + index}>
           <div className="column is-12">
@@ -25,7 +25,7 @@ export const Press = ({ press }) => (
           </div>
         </div>
       )
-    })}
+    }): <div></div>}
   </div>
 );
 

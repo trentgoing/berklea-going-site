@@ -5,7 +5,11 @@ import Layout from '../components/Shared/Layout'
 import PreviewCompatibleImage from '../components/Shared/PreviewCompatibleImage'
 import PageTitle from '../components/Shared/PageTitle'
 
-export const ResumePageTemplate = ({resume_image, headshot_image, resume_pdf}) => {
+export const ResumePageTemplate = ({
+  resume_image, 
+  headshot_image, 
+  resume_pdf
+}) => {
 
   return (
     <section className="section section--gradient">

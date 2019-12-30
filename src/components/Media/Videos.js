@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const Videos = ({ videos }) => (
   <React.Fragment>
-    {videos.map(({video}, index) => {
+    {!!videos ? videos.map(({video}, index) => {
       let side = index === 0 ? '' : index % 2 === 0 ? 'right' : 'left';
       return(
         <div className="columns" key={video+index}>
@@ -17,7 +17,7 @@ export const Videos = ({ videos }) => (
         </div>
       )
       })
-    }
+    : <div></div>}
   </React.Fragment>
 );
 
