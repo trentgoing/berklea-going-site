@@ -1,6 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Shared/Layout'
+import PageTitle from '../../components/Shared/PageTitle'
 
 function encode(data) {
   return Object.keys(data)
@@ -38,24 +39,7 @@ export default class Index extends React.Component {
       <Layout>
         <section className="section section--gradient">
           <div className="container">
-            <div className="columns">
-              <div className="column is-10 is-offset-1">
-                <h1 style={{
-                        color: `black`,
-                        textDecoration: `none`,
-                        fontFamily: `Verdana`,
-                        letterSpacing: `0.15em`,
-                        fontSize: '4.5vw',
-                        marginTop: `10px`,
-                        left: `50%`,
-                        width: `75%`,
-                        fontWeight: `bold`,
-                        textTransform: `uppercase`
-                      }}>
-                  Contact
-                </h1>
-              </div>
-            </div>
+            <PageTitle title="Contact" />
             <div className="columns">
               <div className="column is-10 is-offset-1">
                 <form

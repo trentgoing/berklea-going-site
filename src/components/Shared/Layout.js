@@ -6,8 +6,9 @@ import './all.sass'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper = ({ children, navbarHidden }) => {
   const { title, description } = useSiteMetadata()
+  console.log(navbarHidden)
   return (
     <div className="site-background">
       <Helmet>
@@ -48,7 +49,7 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar />
+      <Navbar navbarHidden={navbarHidden} />
       <div style={{minHeight: `95vh`}}>{children}</div>
       <Footer />
     </div>

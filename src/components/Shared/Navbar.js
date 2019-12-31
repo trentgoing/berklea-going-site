@@ -33,11 +33,15 @@ const Navbar = class extends React.Component {
   }
 
   render() {
+    let visibility = !!this.props.navbarHidden ? 'visible' : 'hidden';
     return (
       <nav
-        className={`navbar is-transparent ${this.state.navBarActiveClass}`}
+        className={`navbar is-transparent ${this.state.navBarActiveClass} $`}
         role="navigation"
         aria-label="main-navigation"
+        style={{
+          visibility: visibility
+        }}
       >
         <div className="container">
           <div className="navbar-brand">

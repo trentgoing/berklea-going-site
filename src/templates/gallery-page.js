@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Carousel from "react-images";
@@ -7,7 +7,7 @@ import PageTitle from '../components/Shared/PageTitle';
 import { GalleryBlock } from '../components/PhotoGallery/GalleryBlock';
 import Subtitle from '../components/Shared/Subtitle';
 
-export const GalleryPageTemplate = ({headshots, shows}) => {
+export const GalleryPageTemplate = ({headshots, shows, setNavbarHidden}) => {
 
   let transformedHeadshots = headshots.map((headshot) => {
     headshot.source = !!headshot.image.childImageSharp && !!headshot.image.childImageSharp.fixed.src ? headshot.image.childImageSharp.fixed.src : headshot.src;
@@ -69,7 +69,7 @@ export const GalleryPageTemplate = ({headshots, shows}) => {
           <div className="column is-10 is-offset-1">
             <div className="section section-gradient">
               <Subtitle title="Recent Productions" />
-              { shows.map((show, index) => (<GalleryBlock show={show} index={index} key={show.title}/>)) }
+              { shows.map((show, index) => (<GalleryBlock show={show} index={index} key={show.title} setNavbarHidden={setNavbarHidden}/>)) }
             </div>
           </div>
         </div>
@@ -80,17 +80,20 @@ export const GalleryPageTemplate = ({headshots, shows}) => {
 
 GalleryPageTemplate.propTypes = {
   headshots: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  shows: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+  shows: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  setNavbarHidden: PropTypes.func
 }
 
 const GalleryPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-
+  const [navbarHidden, setNavbarHidden] = useState(true);
+  console.log(navbarHidden)
   return (
-    <Layout>
+    <Layout navbarHidden={navbarHidden}>
       <GalleryPageTemplate
         headshots={frontmatter.headshots}
         shows={frontmatter.shows}
+        setNavbarHidden={setNavbarHidden}
       />
     </Layout>
   )
