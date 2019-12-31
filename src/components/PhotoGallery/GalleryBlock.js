@@ -14,13 +14,13 @@ export const GalleryBlock = ({show, index, setNavbarHidden}) => {
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
-    setNavbarHidden(false);
+    setNavbarHidden(true);
   }, [setNavbarHidden]);
 
   const closeLightbox = () => {
     setCurrentImage(0);
     setViewerIsOpen(false);
-    setNavbarHidden(true);
+    setNavbarHidden(false);
   };
 
   return (

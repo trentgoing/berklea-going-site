@@ -33,7 +33,7 @@ const Navbar = class extends React.Component {
   }
 
   render() {
-    let visibility = !!this.props.navbarHidden ? 'visible' : 'hidden';
+    let visibility = !!this.props.navbarHidden ? 'hidden' : 'visible';
     return (
       <nav
         className={`navbar is-transparent ${this.state.navBarActiveClass} $`}

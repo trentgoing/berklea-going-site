@@ -86,7 +86,7 @@ GalleryPageTemplate.propTypes = {
 
 const GalleryPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-  const [navbarHidden, setNavbarHidden] = useState(true);
+  const [navbarHidden, setNavbarHidden] = useState(false);
   console.log(navbarHidden)
   return (
     <Layout navbarHidden={navbarHidden}>
