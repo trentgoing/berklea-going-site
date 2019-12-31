@@ -85,9 +85,9 @@ GalleryPageTemplate.propTypes = {
 }
 
 const GalleryPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark;
   const [navbarHidden, setNavbarHidden] = useState(false);
-  console.log(navbarHidden)
+
   return (
     <Layout navbarHidden={navbarHidden}>
       <GalleryPageTemplate
@@ -130,8 +130,6 @@ export const GalleryPageQuery = graphql`
               }
             }
             text
-            height
-            width
           }
         }
       }

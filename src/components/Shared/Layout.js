@@ -7,8 +7,7 @@ import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
 const TemplateWrapper = ({ children, navbarHidden }) => {
-  const { title, description } = useSiteMetadata()
-  console.log(navbarHidden)
+  const { title, description } = useSiteMetadata();
   return (
     <div className="site-background">
       <Helmet>

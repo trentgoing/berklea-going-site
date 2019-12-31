@@ -5,8 +5,11 @@ import Carousel, { Modal, ModalGateway } from "react-images";
 
 export const GalleryBlock = ({show, index, setNavbarHidden}) => {
   let transformedPhotos = show.photos.map((photo) => {
-    photo.src = !!photo.src.childImageSharp && !!photo.src.childImageSharp.fixed.src ? photo.src.childImageSharp.fixed.src : photo.src;
-    return photo;
+    let newPhoto = {};
+    newPhoto.width = photo.src.childImageSharp.fixed.width;
+    newPhoto.height = photo.src.childImageSharp.fixed.height;
+    newPhoto.src = !!photo.src.childImageSharp && !!photo.src.childImageSharp.fixed.src ? photo.src.childImageSharp.fixed.src : photo.src;
+    return newPhoto;
   })
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
